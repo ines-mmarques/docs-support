@@ -8,6 +8,12 @@ platform-version: o11
 
 # Manage the database space of your personal environment
 
+<div class="info" markdown="1">
+
+To clear database space in your Personal Environment, see [Best practices for a tidy and clean environment](https://success.outsystems.com/Documentation/Best_Practices/Lifecycle/Best_practices_for_a_tidy_and_clean_environment).
+
+</div>
+
 Personal Environments have a database limit of 2GB. The database stores the following: 
 
 * **System data**: The metadata used by the OutSystems Platform. This includes, for example, the apps definition, data model, module configurations, logs, and app versions. The system data usually increases as you develop and deploy your app.
@@ -32,4 +38,15 @@ Note that these metrics are updated every hour, so they might not represent the 
 
 </div>
 
-To clear database space in your Personal Environment, see [Best practices for a tidy and clean environment](https://success.outsystems.com/Documentation/Best_Practices/Lifecycle/Best_practices_for_a_tidy_and_clean_environment).
+## How to free some application data
+
+OutSystems periodically cleans up system data, such as older application versions. In self-service, you are also able to free up some system data by using the **DB Cleaner API** to programmatically delete these database columns and tables that are no longer in use. 
+
+You can also make use of some Forge components such as [DB Cleaner On Steroids](https://www.outsystems.com/forge/component-overview/5018/db-cleaner-on-steroids), by following the steps below:
+
+1. Open the "DB Cleaner On Steroids" app;
+2. Select the Modules tab;
+3. On the Filters section, put "-1" on the "Choose a timeline" input (This will show you all the current versions instead of a specific weekly timeline);
+4. Click "Delete" on the application that is taking up the most space or "Delete All" to clear everything. (Keep in mind, this will not delete your application but instead will leave only the current version and delete older ones). 
+
+It is important to refer that this component **is not supported** by OutSystems and for any issue, you should encounter, please use the Support page of the component.
